@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChiCha</title>
+<style>
+	#area {width: 751px; height: 2011px;}
+	#top {width: 750px; height: 140px; background-color: #ffffff; display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px;height: 44px;opacity: 0.8; position: absolute; left: 685px; top: 44px;}
+	#main {width: 751px; height : 1571px; background-color: #ffffff;}
+
+	#searchdiv{width: 751px;height: 420px; background-image: url("image/img_area.png");}
+	#log{width: 751px;height: 35px; position: absolute; text-align: right; margin-top:28px;}
+	#login{width: 100px; height:35px; display: inline-block; text-align: center; margin-right:40px; }
+	#login>a>label{font-family: 'Noto Sans CJK KR';font-size: 28px; font-weight: normal; font-stretch: normal; font-style: normal; color: #ffffff; display: inline-block;}
+	#join{width: 120px; height:35px; display: inline-block; text-align: center;}
+	#join>a>label{font-family: 'Noto Sans CJK KR';font-size: 28px; font-weight: normal; font-stretch: normal; font-style: normal; color: #ffffff; display: inline-block;}
+	#textboxdiv{width: 751px;height: 110px; position: absolute; text-align: left; margin-top:168px;}
+	#textbox{width: 500px;height: 110px; display: inline-block; margin-left:38px;}
+	#textbox>label{font-family: 'Noto Sans CJK KR';font-size: 40px; font-weight: 300; font-stretch: normal; font-style: normal; color: #ffffff;}
+	#textbox>label>font{font-weight: bold;}
+	#searchboxdiv{width: 751px;height: 70px; position: absolute; text-align: center; margin-top:302px;}
+	#searchbox{width: 670px;height: 70px; display: inline-block; text-align: right;}
+	#searchbox>input{width: 640px;height: 70px;border-radius: 10px;border: solid 1px rgba(0, 0, 0, 0.2);background-color: #ffffff; font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.4); padding-left:30px; float:left;}
+
+	#iconbox{width: 751px;height: 240px;background-color: #e6e6e6;}
+	.icon{width : 120px; height: 240px; text-align: center; float:left;}
+	.icon_img{width: 120px; height: 120px; margin-top: 39px; margin-bottom:10px;}
+	.icon>label{font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: rgba(1, 0, 0, 0.8);}
+
+	#selfboxdiv{width: 751px;height: 120px; position: absolute; text-align: center; margin-top:46px;}
+	#selfbox{width: 670px; height: 120px; border-radius: 10px; box-shadow: 0 0 5px 0 rgba(195, 232, 217, 0.75); background: url("image/자가진단.png"); display: inline-block;}
+	#what{width: 310px; height: 80px; text-align: left; float: left; margin-left: 32px; margin-top: 24px;}
+	#what>label{font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color: #ffffff;}
+	#go{width: 258px; height: 50px; text-align: left; float: left; margin-top: 40px; border-bottom: solid 6px #ffffff; margin-left: 35px;}
+	#go>label{font-family: 'Noto Sans CJK KR';font-size: 24.5px; font-weight: bold; font-stretch: normal; font-style: normal; color: #ffffff; margin-left: 3px; }
+	#go>img{width: 53px; height: 18px; margin-left: 10px;}
+
+	#newlabeldiv{width: 751px;height: 105px; position: absolute; text-align: center; margin-top:211px;}
+	#labelbox{width: 670px;height: 105px; display: inline-block; text-align: left; border-bottom: solid 5px #3c3c3c;}
+	#newlabel{width: 400px;height: 75px; display: inline-block; float:left;}
+	#newlabel>label{font-family: 'Noto Sans CJK KR';font-size: 28.5px; font-weight: normal; font-stretch: normal; font-style: normal; color:#010000;}
+	#morespan{width: 100px;height: 30px; display: inline-block; float:right; margin-left: 160px; margin-top:40px;}
+	#morespan>label{font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color:rgba(1, 0, 0, 0.5); }
+
+	#magaboxdiv{width: 751px;height: 339.8px; position: absolute; text-align: center; margin-top:340.2px;}
+	#magabox{width: 670px;height: 339.8px; display: inline-block;}
+	.mag{width: 325px; height: 339.8px; float: left; opacity: 0.6; text-align: left;}
+	.labeldiv{width:320px; margin-left: 22px; margin-top:256.8px;}
+	.labeldiv>label{font-family: 'Noto Sans CJK KR';font-size: 20px; font-weight: normal; font-stretch: normal; font-style: normal; color:#ffffff;}
+
+	#footer{width : 751px;height: 500px;background-color: #ffffff;position: absolute;top : 1511px;}
+
+
+
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<img src = "image/logo.png" id = "img1">
+		<a href = "menu.html"><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+	  <div id = "searchdiv">
+			  <div id = "log">
+				  <th:block sec:authorize="isAnonymous()">
+					  <div id = "join"><a href = "/login"><label>회원가입</label></a></div>
+					  <div id = "login"><a href = "/join_select"><label>로그인</label></a></div>
+				  </th:block>
+			  </div> <!--end log-->
+
+		  <div id = "textboxdiv">
+			  <div id = "textbox">
+			 	 <label><font>ChiCha</font>와 함께하는<br>
+					 몸도 마음도 <font>건강한 하루!</font></label>
+			  </div> <!--end textbox-->
+		  </div> <!--end textboxdiv-->
+
+		  <div id = "searchboxdiv">
+			  <div id = "searchbox">
+				  <input type = "text" placeholder="무엇을 찾고 계신가요?">
+				  <img src= "image/searchicon.png" style = "width: 43px; height: 43px; margin-left: 600px; float:left; margin-top:-60px;">
+			  </div>
+		  </div><!--end searchbox-->
+		</div> <!-- end searchdiv-->
+
+		<div id = "iconbox">
+
+			<div class = "icon" style = "margin-left: 18px;">
+				<img src = "image/center.png" class = "icon_img">
+				<label>센터검색</label>
+			</div>
+
+			<div class = "icon" style = "margin-left: 28px;">
+				<img src = "image/calendar.png" class = "icon_img">
+				<label>캘린더</label>
+			</div>
+
+			<div class = "icon" style = "margin-left: 28px;">
+				<img src = "image/message.png" class = "icon_img">
+				<label>메시지</label>
+			</div>
+
+			<div class = "icon" style = "margin-left: 28px;">
+				<img src = "image/coaching.png" class = "icon_img">
+				<label>코칭받기</label>
+			</div>
+
+			<div class = "icon" style = "margin-left: 28px;">
+				<img src = "image/payment.png" class = "icon_img">
+				<label>결제내역</label>
+			</div>
+		</div> <!--end iconbox-->
+
+		<div id = "selfboxdiv">
+			<div id = "selfbox">
+				<div id = "what"><label><font style = "font-size: 28.5px; font-weight: bold;">자가진단</font><br>어떤 치료를 받으면 좋을까요?</label></div>
+
+				<div id = "go">
+					<label>자가진단 바로가기</label>
+					<img src = "image/go.png">
+				</div>
+
+			</div> <!--end selfbox-->
+		</div> <!--end selfboxdiv-->
+
+		<div id = "newlabeldiv">
+			<div id = "labelbox">
+				<div id = "newlabel">
+					<label><font style = "font-weight: bold; color: #00bfbf;">Chicha</font>가  전해드리는<br>
+					<font style=  "font-weight: bold;">새로운 소식!</font> 무엇일까요?</label>
+				</div> <!--end newlabel-->
+
+				<span id = "morespan">
+					<label>더보기 &gt;</label>
+				</span>
+			</div> <!-- end labelbox-->
+		</div> <!--end newlabeldiv-->
+
+		<div id = "magaboxdiv">
+			<div id = "magabox">
+				<div class = "mag" style = "background-image: url('image/mag1.png')">
+					<div class = "labeldiv">
+						<label>언어치료사가 뽑은<br><font style="font-size: 24px;font-weight: bold;">사회성 발달에 좋은 보드게임</font></label>
+					</div>
+
+				</div>
+
+				<div class = "mag" style = "background-image: url('image/mag2.png')">
+					<div class = "labeldiv">
+						<label>늦기전에,<br><font style="font-size: 24px;font-weight: bold;">독감예방접종 맞자!</font></label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end magaboxdiv-->
+	</div><!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>
