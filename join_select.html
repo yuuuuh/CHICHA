@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>회원가입 선택하기</title>
+<style>
+	a{
+		text-decoration: none;
+		color: #000000;
+	}
+	#area { width: 751px; height: 2011px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu { width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 1571px; background-color: #eef3f6;}
+
+	#titlediv{width: 751px; height: 65px; position: absolute; text-align: center; margin-top: 91px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; display: inline-block;}
+
+	#contentdiv{width: 751px; height: 80px; position: absolute; text-align: center; margin-top: 188px;}
+	#contentdiv>label{font-family: 'Noto Sans CJK KR'; font-size: 30.5px; font-weight: normal; font-stretch: normal; font-style: normal; display: inline-block;}
+
+	#selectboxdiv{width: 751px; height: 350px; position: absolute; text-align: center; margin-top: 400px;}
+	#selectbox{width: 669px; height: 350px; text-align: left; display: inline-block;}
+	.box{width: 321px; height: 350px; float: left; text-align: left;}
+	#selectboxdiv>#selectbox>.box>hr{width: 61px; height: 7px; display: inline-block; background-color: #ffffff; border:none; margin-left: 38px; margin-top: 51px;}
+	.box>label{width: 300px; font-family: 'Noto Sans CJK KR'; font-size: 36.5px; font-weight: bold; font-stretch: normal; font-style: normal; display: inline-block; color: #ffffff; margin-left: 38px; margin-top: 30px;}
+	.box>button{width: 240px; height: 70px; border-radius: 10px; border:none; background-color: #ffffff; margin-left: 40px; margin-top: 100px; font-family: 'Noto Sans CJK KR'; font-size: 30px; font-weight: bold; font-stretch: normal; font-style: normal; display: inline-block; outline: none;}
+
+	#footer{width : 751px;height: 500px;background-color: #ebf2f2;position: absolute;top : 1571px;}
+
+
+</style>
+</head>
+
+<body id = "area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id = "titlediv"><label>회원가입</label></div>
+
+		<div id = "contentdiv"><label><font style = "font-weight: 900; color: #0778ff;">ChiCha</font>에  오신 것을 환영합니다.<br>회원이 되면 더욱 다양한 서비스를 이용 가능합니다.</label></div>
+
+		<div id = "selectboxdiv">
+			<div id = "selectbox">
+				<div class = "box" style = "box-shadow: 0 0 9px 1px rgba(0, 191, 191, 0.45); background-color: #00bfbf; margin-right:27px;">
+					<hr>
+					<label>일반회원</label>
+					<button style = "color: #00bfbf;" onClick="location = 'join.html'">가입하기</button>
+				</div>
+
+				<div class = "box" style = "box-shadow: 0 0 8.5px 1.5px rgba(7, 120, 255, 0.45); background-color: #0778ff;">
+					<hr>
+					<label>치료사 회원</label>
+					<button style = "color: #0778ff;" onClick="location = 'join_thera.html'">가입하기</button>
+				</div>
+
+			</div> <!--end selectbox-->
+		</div> <!--end selectboxdiv-->
+	</div> <!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+
+</body>
+</html>

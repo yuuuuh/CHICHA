@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>회원가입</title>
+<style>
+	#area { width: 751px; height: 2011px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display:table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu { width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 1571px; background-color: #edf2f2;}
+
+	#titlediv{width :751px; height: 70px; position: absolute; text-align: center; margin-top: 91px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR';font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; display: inline-block;}
+
+	#contentdiv{width :751px; height: 80px; position: absolute; text-align: center; margin-top: 187px;}
+	#contentdiv>label{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.8); display: inline-block;}
+
+	.buttondiv{width :751px; height: 70px; position: absolute; text-align: center;}
+	.buttondiv>button{width: 673px; height: 70px; border-radius: 10px; border:none; outline: none; display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 28px; font-weight: bold; font-stretch: normal; font-style: normal;}
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id = "titlediv"><label>회원가입</label></div>
+
+		<div id = "contentdiv">
+			<label>회원가입을 완료하였습니다!<br><font style = "font-weight: bold; color: #0778ff;">ChiCha</font> 에서 더욱 풍성한 서비스를 이용해보세요.</label>
+		</div>
+
+		<a href = "children_enroll.html">
+			<div class = "buttondiv" style = "margin-top: 391px;">
+				<button style = "box-shadow: 0 0 14.3px 0.8px rgba(7, 120, 255, 0.45); background-color: #0778ff; color: #ffffff;">아이등록 하러가기</button>
+			</div>
+		</a>
+
+		<a href = "login.html">
+			<div class = "buttondiv" style = "margin-top: 491px;">
+				<button style = "box-shadow: 0 0 9.5px 0.5px rgba(0, 191, 191, 0.45); background-color: #ffffff; color: #00bfbf;" onClick = "location.href = '로그인.html'">로그인하기</button>
+			</div>
+		</a>
+
+		<a href = "index.html">
+			<div class = "buttondiv" style = "margin-top: 591px;">
+				<button style = "box-shadow: 0 0 9.5px 0.5px rgba(84, 84, 84, 0.75); background-color: #4d4d4d; color: #ffffff;" onClick="location.href = '../메인/메인.html'">메인으로 이동하기</button>
+			</div>
+		</a>
+	</div>
+</body>
+</html>
