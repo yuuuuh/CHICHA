@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,8 +68,8 @@
 	  <div id = "searchdiv">
 			  <div id = "log">
 				  <th:block sec:authorize="isAnonymous()">
-					  <div id = "join"><a href = "/login"><label>회원가입</label></a></div>
-					  <div id = "login"><a href = "/join_select"><label>로그인</label></a></div>
+					  <div id = "join"><a href = "join.html"><label>회원가입</label></a></div>
+					  <div id = "login"><a href = "login.html"><label>로그인</label></a></div>
 				  </th:block>
 			  </div> <!--end log-->
 
@@ -91,25 +90,33 @@
 
 		<div id = "iconbox">
 
-			<div class = "icon" style = "margin-left: 18px;">
+			<a href = "centersearch.html">
+				<div class = "icon" style = "margin-left: 18px;">
 				<img src = "image/center.png" class = "icon_img">
 				<label>센터검색</label>
-			</div>
+				</div>
+			</a>
 
-			<div class = "icon" style = "margin-left: 28px;">
-				<img src = "image/calendar.png" class = "icon_img">
-				<label>캘린더</label>
-			</div>
+			<a href = "day.html">
+				<div class = "icon" style = "margin-left: 28px;">
+					<img src = "image/calendar.png" class = "icon_img">
+					<label>캘린더</label>
+				</div>
+			</a>
 
-			<div class = "icon" style = "margin-left: 28px;">
-				<img src = "image/message.png" class = "icon_img">
-				<label>메시지</label>
-			</div>
+			<a href = "message.html">
+				<div class = "icon" style = "margin-left: 28px;">
+					<img src = "image/message.png" class = "icon_img">
+					<label>메시지</label>
+				</div>
+			</a>
 
-			<div class = "icon" style = "margin-left: 28px;">
-				<img src = "image/coaching.png" class = "icon_img">
-				<label>코칭받기</label>
-			</div>
+			<a href = "untact.html">
+				<div class = "icon" style = "margin-left: 28px;">
+					<img src = "image/coaching.png" class = "icon_img">
+					<label>코칭받기</label>
+				</div>
+			</a>
 
 			<div class = "icon" style = "margin-left: 28px;">
 				<img src = "image/payment.png" class = "icon_img">
@@ -121,10 +128,12 @@
 			<div id = "selfbox">
 				<div id = "what"><label><font style = "font-size: 28.5px; font-weight: bold;">자가진단</font><br>어떤 치료를 받으면 좋을까요?</label></div>
 
-				<div id = "go">
-					<label>자가진단 바로가기</label>
-					<img src = "image/go.png">
-				</div>
+				<a href = "self.html">
+					<div id = "go">
+						<label>자가진단 바로가기</label>
+						<img src = "image/go.png">
+					</div>
+				</a>
 
 			</div> <!--end selfbox-->
 		</div> <!--end selfboxdiv-->
