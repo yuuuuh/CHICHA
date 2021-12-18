@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>기관검색</title>
+<style>
+	#area {width: 751px; height: 4476px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 3976px; background-color: #ffffff; text-align: center;}
+	#topdiv{width: 751px; height : 223px; background-color: #f2f2f2;}
+
+	#titlediv{width: 751px; height: 60px; position: absolute; text-align: left; margin-top: 50px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 40px; display: inline-block;}
+
+	#contentdiv{width: 751px; height: 100px; position: absolute; text-align: left; margin-top: 150px;}
+	#content{width: 666px; height: 50px; opacity: 0.8; background-color: #00cccc; margin-left: 40px; display: inline-block;}
+	#content>label{font-family: 'Noto Sans CJK KR'; font-size: 28.5px; font-weight: 300; font-stretch: normal; font-style: normal; color: #ffffff; margin-left: 13px;}
+	#content>label>font{font-weight: 900;}
+
+	#insertdiv{width: 700px; height: 3570px; box-shadow: 0 0 10px 0 rgba(115, 155, 210, 0.45); background-color: #ffffff; display: inline-block; margin-top: 30px;}
+
+	#centerbox{width: 700px; height: 250px; border-top: solid 4px #3c3c3c; border-bottom: solid 2px #e6e6e6;}
+	#centernamediv{width: 670px;height: 35px;text-align: left; margin-top: 10px; display: inline-block;}
+	#namediv{width: 550px;height: 35px; margin-left:31px; display: inline-block; float: left;}
+	#namediv>label{font-family: 'Noto Sans CJK KR'; font-size: 30px; font-weight: bold; font-stretch: normal; font-style: normal;}
+	#mark{width: 52px;height: 78px; margin-left:20px; margin-top:-10px; display: inline-block; float: left;}
+	#mark>img{width: 52px; height: 78px;}
+	#centeradddiv{width: 670px;height: 30px;text-align: left; margin-top: 12px; display: inline-block;}
+	#adddiv{width: 450px;height: 30px; margin-left:31px; display: inline-block; float: left;}
+	#adddiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal;color: #999999;}
+	#homepagediv{width: 670px;height: 30px;text-align: left; margin-top: 12px; display: inline-block;}
+	#homepage{width: 450px;height: 30px; margin-left:31px; display: inline-block; float: left;}
+	#homepage>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal;color: #999999;}
+	#homepage>label>font{color: #353535;}
+	#stardiv{width: 150px;height: 25px;  margin-top:18px; display: inline-block; float: left; text-align: center; margin-left:40px;}
+	#stardiv>img{width: 25px; height: 24px;}
+	#scorelabeldiv{width: 50px;height: 35px; float: left; display: inline-block; margin-left:10px; margin-top:10px;}
+	#scorelabeldiv>label{font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: 900; font-stretch: normal; font-style: normal; color: #00bfbf;}
+	#centerbuttondiv{width: 354px;height: 62px; float: left; display: inline-block; margin-left:70px; margin-top:20px; text-align: center;}
+	#call{width: 160px; height: 62px; border-radius: 10px; outline: none; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 5px; box-shadow: 0 0 9.5px 0.5px rgba(0, 217, 217, 0.44); border: solid 3px #00cccc; background-color: #ffffff; color: #00cccc;}
+	#message{width: 160px; height: 62px; border-radius: 10px; outline: none; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 5px; box-shadow: 0 0 9.5px 0.5px rgba(64, 64, 64, 0.45); border: solid 3px #404040; background-color: #ffffff; color: #404040;}
+
+	#tapdiv{width: 670px; height: 61px; border:none; display: inline-block;}
+	#tapdiv>input{display: none;}
+	#tapdiv>input + label{width: 134px; height: 47px; border-bottom: solid 6px #e6e6e6;  background-color: #ffffff; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: bold;font-style: normal;color:#999999; float: left; padding-top:14px;}
+	#tapdiv>input:checked + label{border-color: #00cccc; color: #00cccc;}
+
+	#inboxdiv{width: 700px; height: 3250px; border:none; display: inline-block;}
+	#inboxdiv>iframe{width: 700px; height: 3250px; border:none; overflow: hidden;}
+
+	#footer{width : 751px;height: 500px;position: absolute; top : 3976px;}
+
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id = "topdiv">
+			<div id=  "titlediv"><label>센터 결과보기</label></div>
+
+			<div id = "contentdiv">
+				<div id = "content">
+					<label>“ <font>서울시 전체</font> ”  “ <font>언어치료</font> ”  검색한 결과입니다.</label>
+				</div>
+			</div> <!--end contentdiv-->
+		</div> <!--end topdiv-->
+
+		<div id = "insertdiv">
+			<div id = "centerbox">
+				<div id = "centernamediv">
+				  <div id = "namediv"><label>신림종합사회복지관 다솜아동발달지원센터 </label></div>
+				  <div id = "mark"><img src = "image/bookmark_green.png"></div>
+				</div>
+
+				<div id = "centeradddiv">
+					<div id = "adddiv"><label>서울 관악구 난곡로 110</label></div>
+				</div>
+
+				<div id = "homepagediv">
+					<div id = "homepage"><label>홈페이지 <font onClick = "location.href = 'http://sillym.or.kr'">http://sillym.or.kr</font></label></div>
+				</div>
+
+				<div id = "stardiv">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star.png">
+				</div>
+
+				<div id = "scorelabeldiv"><label>4.0</label></div>
+
+				<div id = "centerbuttondiv">
+					<button id = "call">전화하기</button>
+					<button id = "message">메시지</button>
+				</div>
+			</div> <!--end centerbox-->
+
+			<div id = "tapdiv">
+				<input type = "radio" id = "1" name = "tap"><label for = "1">소개</label>
+				<input type = "radio" id = "2" name = "tap"><label for = "2">비용</label>
+				<input type = "radio" id = "3" name = "tap"><label for = "3">시설</label>
+				<input type = "radio" id = "4" name = "tap"><label for = "4">위치</label>
+				<input type = "radio" id = "5" name = "tap"><label for = "5">리뷰</label>
+			</div> <!--end tapdiv-->
+
+			<div id = "inboxdiv">
+				<iframe src = "center_detail_iframe.html"></iframe>
+
+			</div> <!--end inboxdiv-->
+		</div> <!--end insertdiv-->
+	</div> <!--end main-->
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>

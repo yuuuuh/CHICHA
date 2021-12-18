@@ -1,0 +1,375 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	#area{width: 670px;height: 3250px;background-color: #ffffff; overflow-x: hidden; overflow-y: auto; text-align:center;
+	::-webkit-scrollbar-track {background-color:#f2f2f2;}
+	::-webkit-scrollbar-thumb {background-color: #00cccc;}}
+
+
+	.titlediv{width: 670px;height: 40px; display: inline-block; text-align: left; margin-top:50px;}
+	.title{width: 100px;height: 40px; display: inline-block; margin-left: 31px;}
+	.title>label{font-family: 'Noto Sans CJK KR'; font-size: 30px; font-weight: bold; font-stretch: normal; font-style: normal;}
+
+	#introduce{width: 670px;height: 398px; display: inline-block; border-bottom: solid 2px #f2f2f2;}
+	#timeboxdiv{width: 670px;height: 100px; text-align: center; margin-top: 17px;}
+	#timebox{width: 611px; height: 100px; background-color: #f2f2f2; display: inline-block; text-align: left;}
+	#treattimediv{width: 250px; height: 80px; text-align: left; margin-top:18px; margin-left:22px; float:left;}
+	#treattimediv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal;}
+	#treattimediv>label>font{font-weight: 300; margin-left:15px;}
+	#an{font-weight: normal;color: #999999;}
+	#beginningdiv{width: 250px; height: 40px; text-align: left; margin-top:18px; margin-left:40px; float:left;}
+	#beginningdiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal;}
+	#beginningdiv>label>font{font-weight: 300; margin-left:15px;}
+	#announcediv{width: 600px; height: 150px; text-align: left; display: inline-block; margin-top: 24px;}
+	#announcediv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 300; font-stretch: normal; font-style: normal;}
+	#announcediv>label>font{font-weight: bold;}
+
+	#cost{width: 670px; height: 496px; display: inline-block; border-bottom: solid 2px #f2f2f2;}
+	.costboxdiv{width: 670px;height: 150px; text-align: center; margin-top:10px;}
+	.costbox{width: 610px;height: 150px; display: inline-block; border-top: solid 3px #404040;}
+	.costtop{width: 610px; height: 70px; background-color: #f2f2f2; text-align: left;}
+	.labeldiv{width: 350px; height: 35px; display: inline-block; margin-left: 40px; margin-top:15px; float: left;}
+	.labeldiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; color: #404040;}
+	.costlabeldiv{width: 200px; height: 35px; display: inline-block; margin-top:15px; float: left;}
+	.costlabeldiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; color: #00a6a6;}
+	.costcontent{width: 610px; height: 80px; background-color: #ffffff; text-align: left;}
+	.contentdiv{width: 120px; height: 50px; border-radius: 10px; border: solid 2px #404040; background-color: #ffffff; margin-left:10px; margin-top:15px; text-align: center; float: left;}
+	.contentlabel{width: 70px; height: 30px; display: inline-block; margin-top:6px;}
+	.contentlabel>label{font-family: 'Noto Sans CJK KR'; font-size: 23.5px; font-weight: bold; font-stretch: normal; font-style: normal; color: #404040;}
+
+
+	#facility{width: 670px; height: 420px; display: inline-block; border-bottom: solid 2px #f2f2f2;}
+	#facilitydiv{width: 650px; height: 230px; text-align: left; display: inline-block; margin-top:33px; margin-left:30px;}
+	.fbox{width: 195px; height: 100px; display: inline-block; float: left; margin-bottom:15px;}
+	.fbox>img{width: 80px; height: 100px; float:left; }
+	.flabel{width: 100px; height: 100px; margin-left:100px; margin-top:5px;}
+	.flabel>label{font-family: 'Noto Sans CJK KR'; font-size: 20px; font-weight: bold; font-stretch: normal; font-style: normal; color:#00cccc;}
+	.flabel>label>font{font-weight: normal; color: #a5a5a5;}
+
+
+	#location{width: 670px; height: 657px; display: inline-block; border-bottom: solid 2px #f2f2f2;}
+	#locadiv{width: 670px; height: 62px; display: inline-block; text-align: left; margin-top: 28px;}
+	#loca{width: 450px; height: 35px; display: inline-block; margin-left: 28px; float: left; margin-top:25px;}
+	#loca>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color:#404040;}
+	#serachload{width: 188px; height: 62px; text-align: right; float: left; display: inline-block;}
+	#serachload>button{width: 160px; height: 62px; border-radius: 10px; box-shadow: 0 0 9.5px 0.5px rgba(64, 64, 64, 0.44); border: solid 3px #404040; background-color: #ffffff; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color:#404040;}
+	#location>hr{width: 610px; height: 3px;  background-color: #404040; display: inline-block; margin-top: 25px;}
+	#mapdiv{width: 670px; height: 360px; display: inline-block; text-align: center; margin-top: 20px;}
+	#map{width: 610px; height: 360px; box-shadow: 0 0 4.8px 0.3px rgba(64, 64, 64, 0.45); display: inline-block;}
+
+	#review{width: 670px; height: 1300px; display: inline-block;}
+	#avgstarboxdiv{width: 670px; height: 125px; text-align: center;}
+	#avgstarbox{width: 608px; height: 125px; display: inline-block; text-align: center;}
+	#avgstar{display: inline-block; margin-top:18px;}
+	#avgstar>img{width: 25px; height: 24px;float: left; margin-left: 3px;}
+	#avglabel{width: 50px; height: 20px;float: left; margin-left: 10px; margin-top: -5px;}
+	#avglabel>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color:#00cccc;}
+	#totalreview{width:608px; height: 30px; display: inline-block; margin-top: 15px;}
+	#totalreview>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; color:#000000;}
+	#totalreview>label>font{font-weight: 900; color: #00cccc;}
+	#review>hr{width: 608px; height: 4px; background-color: #3c3c3c; border:none;}
+	.reviewboxdiv{width: 670px; height: 192px; text-align: center;}
+	.reviewbox{width: 613px; height: 192px; display: inline-block; border-bottom: solid 2px #dcdcdc;}
+	.starpointdiv{width: 140px; height: 25px; text-align: left; float: left; display: inline-block; margin-top:20px;}
+	.numpointdiv{width: 50px; height: 25px; text-align: left; float: left; display: inline-block; margin-top:15px; margin-left:10px;}
+	.numpointdiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24.5px; font-weight: 900; font-stretch: normal; font-style: normal; color:#00cccc;}
+
+	.infodiv{width: 400px; height: 40px; text-align: right; float: left; display: inline-block; margin-top:15px; margin-left:13px;}
+	.iddiv{width: 230px; height: 40px; text-align: right; float: left; display: inline-block;}
+	.iddiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 300; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.6);}
+	.divdiv{width:30px; height: 40px; text-align: right; float: left; display: inline-block; }
+	.divdiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 300; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.6);}
+	.datediv{width: 120px; height: 40px; text-align: left; float: right; display: inline-block;}
+	.datediv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 300; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.6);}
+	.reviewcondiv{width: 612px; height: 94px; margin-top:60px; text-align: left; s}
+	.reviewcondiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal;}
+	#pagediv{width: 670px; height: 50px; text-align: center; margin-top:35px;}
+	#backpage{width: 100px; height: 50px; display: inline-block; float:left;}
+	#backpage>img{margin-left: 20px; margin-top: 15px;}
+	#numpage{width: 450px; height: 50px; display: inline-block; float:left;}
+	.nu{width: 50px; height: 50px; display: inline-block; background-color: #ffffff;text-align: center;}
+	.nu>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal;}
+	#ch{width: 50px; height: 50px; display: inline-block; background-color: #ebf2f2;text-align: center;}
+	#ch>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: #00cccc;}
+	#frontpage{width: 100px; height: 50px; display: inline-block; float:left;}
+	#frontpage>img{margin-left: 20px; margin-top: 15px;}
+
+</style>
+</head>
+
+<body id = "area">
+	<div id = "introduce">
+		<div class = "titlediv"><div class = "title"><label>소개</label></div></div>
+
+		<div id = "timeboxdiv">
+			<div id = "timebox">
+				<div id = "treattimediv"><label>치료시간<font>09:00~20:00</font></label>
+				<label id = "an">(치료별 상이)</label></div>
+				<div id = "beginningdiv"><label>초기상담<font>09:00~18:00</font></label></div>
+			</div>
+		</div> <!--end timeboxdiv-->
+
+		<div id = "announcediv">
+			<label><font>'다솜'</font>은 순우리말로 <font style = "color: #00cccc;">사랑</font>이라는 뜻으로<br>
+					다솜아동발달지원센터에서는 상담과 재활프로그램을 통해<br>
+					아동, 청소년의 어려움을 해결함으로써<br>
+					건강한 아동, 청소년, 부모가 될 수 있도록 돕는 사업입니다.
+			</label>
+		</div>
+	</div> <!--end introduce-->
+
+	<div id = "cost">
+		<div class = "titlediv"><div class = "title"><label>비용</label></div></div>
+
+		<div class = "costboxdiv" style = "margin-top: 27px;">
+			<div class = "costbox">
+				<div class = "costtop">
+					<div class = "labeldiv"><label>치료 40분 + 상담 10분 (총 50분)</label></div>
+					<div class = "costlabeldiv"><label>3만원 (회당)</label></div>
+				</div>
+
+				<div class = "costcontent">
+					<div class = "contentdiv">
+						<div class = "contentlabel"><label>언어</label></div>
+					</div>
+					<div class = "contentdiv">
+						<div class = "contentlabel"><label>심리</label></div>
+					</div>
+					<div class = "contentdiv">
+						<div class = "contentlabel"><label>인지</label></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class = "costboxdiv">
+			<div class = "costbox">
+				<div class = "costtop">
+					<div class = "labeldiv"><label>치료 50분 + 상담 10분 (총 60분)</label></div>
+					<div class = "costlabeldiv"><label>3만 5천원 (회당)</label></div>
+				</div>
+
+				<div class = "costcontent">
+					<div class = "contentdiv">
+						<div class = "contentlabel"><label>그룹</label></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!--end cost-->
+
+	<div id = "facility">
+		<div class = "titlediv"><div class = "title"><label>시설</label></div></div>
+
+		<div id = "facilitydiv">
+			<div class = "fbox">
+				<img src = "image/elevator.png">
+				<div class = "flabel"><label>엘리베이터<br><font>24인승<br>휠체어 가능</font></label></div>
+			</div>
+
+			<div class = "fbox" style = "margin-left:20px;">
+				<img src = "image/park.png">
+				<div class = "flabel"><label>주차공간<br><font>협소</font></label></div>
+			</div>
+
+			<div class = "fbox" style = "margin-left:20px;">
+				<img src = "image/wifi.png">
+				<div class = "flabel"><label>와이파이<br><font>없음</font></label></div>
+			</div>
+
+			<div class = "fbox" >
+				<img src = "image/fireextinguisher.png">
+				<div class = "flabel"><label>소화기<br><font>배치</font></label></div>
+			</div>
+
+			<div class = "fbox" style = "margin-left:20px;">
+				<img src = "image/cafe.png">
+				<div class = "flabel"><label>카페<br><font>커피없음,<br>2층카페</font></label></div>
+			</div>
+
+			<div class = "fbox" style = "margin-left:20px;">
+				<img src = "image/library.png">
+				<div class = "flabel"><label>어린이<br>도서관</label></div>
+			</div>
+		</div>
+	</div> <!--end facility-->
+
+	<div id = "location">
+		<div class = "titlediv"><div class = "title"><label>위치</label></div></div>
+
+		<div id = "locadiv">
+			<div id = "loca"><label>서울특별시 관악구 난곡로 110 (난향동 664)</label>
+			</div>
+
+			<div id = "serachload"><button>길찾기</button></div>
+		</div>
+
+		<hr>
+
+		<div id = "mapdiv">
+			<div id = "map">
+				<div id="daumRoughmapContainer1601261740091" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+				<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+				<script charset="UTF-8">
+					new daum.roughmap.Lander({"timestamp" : "1601261740091","key" : "2296v","mapWidth" : "610","mapHeight" : "360"}).render();
+				</script> <!--지도-->
+
+			</div>
+		</div>
+	</div> <!--end location-->
+
+	<div id = "review">
+		<div class = "titlediv"><div class = "title"><label>리뷰</label></div></div>
+
+		<div id = "avgstarboxdiv">
+			<div id = "avgstarbox">
+				<div id = "avgstar">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_0.5.png">
+					<div id = "avglabel"><label>4.5</label></div>
+				</div>
+
+				<div id = "totalreview"><label>총 <font>19</font> 개의 리뷰가 있습니다.</label></div>
+			</div>
+		</div> <!--end avgstarboxdiv-->
+
+		<hr>
+
+		<div class = "reviewboxdiv">
+			<div class = "reviewbox">
+				<div class = "starpointdiv">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_0.5.png">
+				</div>
+				<div class = "numpointdiv"><label>4.5</label></div>
+
+				<div class = "infodiv">
+					<div class = "iddiv"><label>Chichaaa</label></div>
+					<div class = "divdiv"><label>|</label></div>
+					<div class = "datediv"><label>2020-08-16</label></div>
+				</div>
+
+				<div class = "reviewcondiv"><label>내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.</label>
+				</div>
+			</div> <!--end reviewbox-->
+		</div> <!--end reviewboxdiv-->
+
+		<div class = "reviewboxdiv">
+			<div class = "reviewbox">
+				<div class = "starpointdiv">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star.png">
+				</div>
+				<div class = "numpointdiv"><label>4.0</label></div>
+
+				<div class = "infodiv">
+					<div class = "iddiv"><label>ididid12</label></div>
+					<div class = "divdiv"><label>|</label></div>
+					<div class = "datediv"><label>2020-08-15</label></div>
+				</div>
+
+				<div class = "reviewcondiv"><label>내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.</label>
+				</div>
+			</div> <!--end reviewbox-->
+		</div> <!--end reviewboxdiv-->
+
+		<div class = "reviewboxdiv">
+			<div class = "reviewbox">
+				<div class = "starpointdiv">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_0.5.png">
+				</div>
+				<div class = "numpointdiv"><label>4.5</label></div>
+
+				<div class = "infodiv">
+					<div class = "iddiv"><label>ididid13</label></div>
+					<div class = "divdiv"><label>|</label></div>
+					<div class = "datediv"><label>2020-08-16</label></div>
+				</div>
+
+				<div class = "reviewcondiv"><label>내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.</label>
+				</div>
+			</div> <!--end reviewbox-->
+		</div> <!--end reviewboxdiv-->
+
+			<div class = "reviewboxdiv">
+			<div class = "reviewbox">
+				<div class = "starpointdiv">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_0.5.png">
+				</div>
+				<div class = "numpointdiv"><label>4.5</label></div>
+
+				<div class = "infodiv">
+					<div class = "iddiv"><label>ididid14</label></div>
+					<div class = "divdiv"><label>|</label></div>
+					<div class = "datediv"><label>2020-08-16</label></div>
+				</div>
+
+				<div class = "reviewcondiv"><label>내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.</label>
+				</div>
+			</div> <!--end reviewbox-->
+		</div> <!--end reviewboxdiv-->
+
+			<div class = "reviewboxdiv">
+			<div class = "reviewbox">
+				<div class = "starpointdiv">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_full.png">
+					<img src = "image/star_0.5.png">
+				</div>
+				<div class = "numpointdiv"><label>4.5</label></div>
+
+				<div class = "infodiv">
+					<div class = "iddiv"><label>ididid27</label></div>
+					<div class = "divdiv"><label>|</label></div>
+					<div class = "datediv"><label>2020-08-16</label></div>
+				</div>
+
+				<div class = "reviewcondiv"><label>내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.내용이 보여집니다.  내용이 보여집니다. 내용이 보여집니다.  내용이 보여집니다.</label>
+				</div>
+			</div> <!--end reviewbox-->
+		</div> <!--end reviewboxdiv-->
+
+		<div id = "pagediv">
+			<div id = "backpage">
+				<img src = "image/bback.png">
+				<img src = "image/back.png">
+			</div>
+
+			<div id = "numpage">
+				<div class = "nu"><label>1</label></div>
+				<div class = "nu"><label>2</label></div>
+				<div id = "ch"><label>3</label></div>
+				<div class = "nu"><label>4</label></div>
+			</div>
+
+			<div id = "frontpage">
+				<img src = "image/front.png">
+				<img src = "image/ffront.png">
+			</div>
+		</div>
+	</div> <!--end review-->
+
+
+</body>
+</html>
