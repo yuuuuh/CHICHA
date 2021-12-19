@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>캘린더</title>
+<style>
+	/*a태그 밑줄 삭제*/
+	a {
+		text-decoration: none
+	}
+	#area {width: 751px; height: 2133px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 1633px; background-color: #f4f4f4;}
+
+	#titlediv{width: 751px; height: 60px; position: absolute; text-align: left; margin-top: 71px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 40px; display: inline-block;}
+
+	#planboxdiv{width: 751px; height: 244px; position: absolute; text-align: center; margin-top: 147px;}
+	#planbox{width: 670px; height: 244px; box-shadow: 0 0 10px 0 rgba(115, 155, 210, 0.45); background-color: #ffffff; display: inline-block;}
+	#thismonth{width: 120px; height: 30px; margin-left: 31px; margin-top: 30px; text-align: left;}
+	#thismonth>label{font-family: 'Noto Sans CJK KR'; font-size: 32px; font-weight: 300; font-stretch: normal; font-style: normal; color: #2f2f2f;}
+	#thisplan{width: 140px; height: 30px; margin-left: 31px; margin-top: 20px; text-align: left; float: left;}
+	#thisplan>label{font-family: 'Noto Sans CJK KR'; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; color: #2f2f2f;}
+	#people{width: 120px; height: 40px; margin-top: 20px; box-shadow: 0 0 10px 0 rgba(0, 204, 204, 0.45); background-color: #00cccc; text-align: center; float: left; padding-bottom: 8px;}
+	#people>label{font-family: 'Noto Sans CJK KR'; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; color: #ffffff;}
+	#currentdiv{width: 220px; height: 30px; margin-right: 33px; margin-top: 30px; text-align: right; float: right;}
+	#currentdiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: #2f2f2f;}
+	#currentdiv>label>font{font-weight: normal; color: #4e4e4e;}
+	#peoplebox{width: 670px; height: 110px; background-color: #2f2f2f; display: inline-block; margin-top: 10px; text-align: center;}
+	#p{width: 640px; height: 50px; display: inline-block; margin-top: 38px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: #ffffff;}
+	#attendancediv{width: 100px; display: inline-block; float: left; text-align: left;}
+	#attendancediv>label{float: left;}
+	#attendance{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; background-color: #ffffff; color: #2f2f2f; text-align: center;}
+	#absentdiv{width: 100px; display: inline-block; float: left; text-align: left; margin-left: 10px; color: #f25b3d;}
+	#absentdiv>label{float: left;}
+	#absent{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; background-color: #f25b3d; color: #ffffff; text-align: center;}
+	#reinforcediv{width: 150px; display: inline-block; float: left; text-align: left; margin-left: 10px; color: #ffffff;}
+	#reinforcediv>label{float: left;}
+	#reinforce{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; background-color: #ffffff; color: #ff4a26; text-align: center;}
+	#evaluationdiv{width: 150px; display: inline-block; float: left; text-align: left; margin-left: 10px;}
+	#evaluationdiv>label{float: left;}
+	#evaluation{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; box-shadow: 0 0 4.8px 0.3px #000000; background-color: #2f2f2f; color: #ffffff; text-align: center;}
+	#totaldiv{width: 100px; display: inline-block; float: left; text-align: left; margin-left: 10px;}
+	#totaldiv>label{float: left;}
+	#total{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; box-shadow: 0 0 4.8px 0.3px #000000; background-color: #2f2f2f; color: #ffffff; text-align: center;}
+
+	#calendarboxdiv{width: 751px; height: 930px; position: absolute; text-align: center; margin-top: 422px;}
+	#calendarbox{width: 670px; height: 930px; display: inline-block; background-color: #ffffff;}
+	#caltopdiv{width: 670px; height: 111px; background-color: #f7fbff; text-align: center;}
+	#calbutton{width: 610px; height: 70px; display: inline-block; margin-top: 20px;}
+	#calbutton>button{width: 286px; height: 70px; border-radius: 10px; box-shadow: 0 0 10px 0 rgba(0, 98, 217, 0.45); background-color: #ffffff; margin-left: 8px; margin-right: 8px; font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: bold; font-stretch: normal; font-style: normal; color: #0262d6;;}
+
+	#btndiv{width :751px; height: 160px; position: absolute; text-align: center; margin-top: 1373px;}
+	#btndiv>button{width: 668px; height: 70px; border-radius: 10px; border:none; outline:none; box-shadow: 0 0 5px 0 rgba(115, 155, 210, 0.45); background-color: #0262d6;display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal; text-align: left;color:#ffffff; text-align: center;}
+
+	#footer{width : 751px;height: 500px;position: absolute; top : 1633px;  background-color: #f4f4f4;}
+
+
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id = "titlediv"><label>코칭일정</label></div>
+
+
+		<div id = "planboxdiv">
+			<div id = "planbox">
+				<div id = "thismonth"><label>이번 달</label></div>
+				<div id = "thisplan"><label>코칭예정</label></div>
+				<div id = "people"><label>145명</label></div>
+				<div id = "currentdiv"><label>이번달 코치현황 <font>(명)</font></label></div>
+
+				<div id = "peoplebox">
+					<div id = "p">
+						<div id = "attendancediv">
+							<label>출석</label>
+							<div id = "attendance">56</div>
+						</div>
+
+						<div id = "absentdiv">
+							<label>결석</label>
+							<div id = "absent">03</div>
+						</div>
+
+						<div id = "reinforcediv">
+							<label>보강완료</label>
+							<div id = "reinforce">02</div>
+
+						</div>
+
+						<div id = "evaluationdiv">
+							<label>평가완료</label>
+							<div id = "evaluation">04</div>
+
+						</div>
+
+						<div id = "totaldiv">
+							<label>누적</label>
+							<div id = "total">58</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- end planboxdiv-->
+
+		<div id = "calendarboxdiv">
+			<div id = "calendarbox">
+				<div id = "caltopdiv">
+					<div id = "calbutton">
+						<button onclick="location.href = 'cal_enroll.html'">
+							<img src = "image/coachplus.png">
+							코칭등록
+						</button>
+						<button onclick="location.href = 'cal_treat_list.html'">
+							<img src = "image/coach.png">
+							코칭회기
+						</button>
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</div> <!--end calendarboxdiv-->
+
+		<div id = "btndiv">
+			<button onClick="location.href = 'cal_children_list.html'">아동리스트</button>
+		</div>
+	</div> <!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>

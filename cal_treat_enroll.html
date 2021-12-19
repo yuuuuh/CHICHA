@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang = "ko">
+<head>
+<meta charset="utf-8">
+<title>코칭회기</title>
+<style>
+	/*a태그 밑줄 삭제*/
+	a {
+		text-decoration: none
+	}
+	#main{width: 670px; height: 1165px; background-color: #ffffff;}
+
+	#titlediv{width:670px; height: 45px; position: absolute; text-align: left; margin-top: 30px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR';font-size: 40.5px; font-weight: bold; font-stretch: normal; font-style: normal; display: inline-block; margin-left: 27px;}
+
+	#childinfoboxdiv{width:670px; height: 220px; position: absolute; text-align: center; margin-top: 100px;}
+	#childinfoboxdiv>#childinfobox{width: 610px; height: 221px; border: solid 1px rgba(0, 0, 0, 0.2); background-color: #d9d9d9; display: inline-block;}
+	#childinfoboxdiv>#childinfobox>.line{width: 610px; height: 30px; text-align: left; }
+	#childinfoboxdiv>#childinfobox>.line>#chname{width: 100px; height: 35px; display: inline-block; text-align: left; float: left; margin-left:35px; }
+	#childinfoboxdiv>#childinfobox>.line>#chname>label{font-family: 'Noto Sans CJK KR';font-size: 30px; font-weight: bold; font-stretch: normal; font-style: normal; color: #000000;}
+	#childinfoboxdiv>#childinfobox>.line>#cround{width: 120px; height: 35px; display: inline-block; text-align: left; float: left; margin-left:38px;}
+	#childinfoboxdiv>#childinfobox>.line>#cround>label{font-family: 'Noto Sans CJK KR';font-size: 30px; font-weight: bold; font-stretch: normal; font-style: normal; color: #0778ff;}
+	#childinfoboxdiv>#childinfobox>.line>.left{width: 120px; height: 35px; display: inline-block; text-align: left; float: left; margin-left:35px;margin-top:5px;}
+	#childinfoboxdiv>#childinfobox>.line>.left>label{opacity: 0.8;font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.8);}
+	#childinfoboxdiv>#childinfobox>.line>.right{width: 300px; height: 35px; display: inline-block; text-align: left; float: left;  margin-left:35px; margin-top:5px;}
+	#childinfoboxdiv>#childinfobox>.line>.right>label{ opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: 300; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.8);}
+
+	.divdiv{width:670px; height: 265px; position: absolute; text-align: left;}
+	.divdiv>.divtitle{width: 120px; height: 35px; display: inline-block; text-align: left; float: left; margin-left:33px;}
+	.divdiv>.divtitle>label{font-family: 'Noto Sans CJK KR';font-size: 28.5px; font-weight: 900; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.8);}
+	.divdiv>.contentdiv{width: 608px; height: 200px; display: inline-block; text-align: center; float: left; margin-left:33px;}
+	.divdiv>.contentdiv>textarea{width: 578px;height: 181px; border-radius: 10px;border: solid 1px rgba(0, 0, 0, 0.2);background-color: #ffffff; resize: none; margin-top: 20px; padding-left:30px; padding-top:20px; display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.5);}
+
+	#btndiv{width :670px; height: 160px; position: absolute; text-align: center; margin-top: 950px;}
+	#btndiv>#register{width: 608px; height: 70px; border-radius: 10px; border:none; outline:none; box-shadow: 0 0 5px 0 rgba(115, 155, 210, 0.45); background-color: #00bfbf; display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal;letter-spacing: -1.44px;text-align: left;color:#ffffff; text-align: center;}
+	#btndiv>#cancel{width: 608px; height: 70px; border-radius: 10px; border:none; outline:none; box-shadow: 0 0 5px 0 rgba(115, 155, 210, 0.45); background-color: #3c3c3c; display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal;letter-spacing: -1.44px;text-align: left;color:#ffffff; margin-top:20px;text-align: center;}
+
+</style>
+
+</head>
+
+<body>
+	<div id = "main">
+
+		<div id=  "titlediv"><label>치료회기</label></div>
+
+		<div id = "childinfoboxdiv">
+			<div id = "childinfobox">
+				<div class = "line" style = "margin-top:30px;">
+					<div id = "chname"><label th:text="${childName}">홍길동</label></div>
+					<div id = "cround"><label th:text="${scheduleDto.id}">회기</label></div>
+				</div>
+				<div class = "line" style = "margin-top:20px;">
+					<div class = "left"><label>날짜</label></div>
+					<div class = "right"><label th:text="${scheduleDto.createdDate}">2020.09.05</label></div>
+				</div>
+				<div class = "line">
+					<div class = "left"><label>시간</label></div>
+					<div class = "right"><label th:text="${scheduleDto.start}">13:00 - 14:00 (50분)</label></div>
+				</div>
+				<div class = "line">
+					<div class = "left"><label>최종수정일</label></div>
+					<div class = "right"><label> 2020.09.14</label></div>
+				</div>
+			</div>
+		</div> <!--end childinfoboxdiv-->
+
+		<div class = "divdiv" style = "margin-top:355px;">
+			<div class = "divtitle"><label>회기</label></div>
+			<div class = "contentdiv">
+				<textarea placeholder="내용을 입력하세요."></textarea>
+			</div>
+		</div>
+		<div class = "divdiv" style = "margin-top:640px;">
+			<div class = "divtitle"><label>상담</label></div>
+			<div class = "contentdiv">
+				<textarea placeholder="내용을 입력하세요."></textarea>
+			</div>
+		</div>
+
+		<div id = "btndiv">
+			<button id = "register" onclick = "location.href = 'cal_treat.html'">등록</button>
+			<button id = "cancel">취소</button>
+		</div>
+
+	</div> <!--end main-->
+</body>
+</form>
+</html>

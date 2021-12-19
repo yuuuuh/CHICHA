@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>아동리스트</title>
+<style>
+	/*a태그 밑줄 삭제*/
+	a {
+		text-decoration: none
+	}
+	a:link{color:black}
+	a:visited{color:black}
+
+	#area {width: 751px; height: 2548px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 2048px; background-color: #ffffff;}
+	#topdiv{width: 751px; height : 252px; background-color: #f2f2f2;}
+
+	#titlediv{width: 751px; height: 60px; position: absolute; text-align: left; margin-top: 45px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 40px; display: inline-block;}
+	#topdiv>input{width: 645px; height: 70px; border-radius: 10px; border: solid 1px rgba(0, 26, 26, 0.2); background-color: #ffffff; padding-left:25px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.4); margin-left: 40px; margin-top: 141px; display: inline-block; float: left;}
+
+	#registerbtn{width: 751px; height: 70px; position: absolute; text-align: right; margin-top: 40px;}
+	#registerbtn>button{width: 169px; height: 70px; border-radius: 10px; box-shadow: 0 0 8px 0 rgba(57, 56, 58, 0.45); border: solid 3px #0778ff; background-color: #ffffff; margin-right:40px; font-family: 'Noto Sans CJK KR'; font-size: 26px; font-weight: bold; font-stretch: normal; font-style: normal; color: #0778ff;}
+
+	.resultboxdiv{width: 751px; height: 942px; position: absolute; text-align: center;}
+	.resultboxdiv>.resultbox{width: 670px; height: 942px; display: inline-block;}
+	.resultboxdiv>.resultbox>.resulttop{width: 670px; height: 120px; background-color: #d9d9d9; border-top:solid 4px #3c3c3c; text-align: left;}
+	.resultboxdiv>.resultbox>.resulttop>.centername{width: 110px; height: 35px; text-align: right; margin-left: 31px; margin-top:15px; font-family: 'Noto Sans CJK KR';font-size: 30px;font-weight: bold;font-stretch: normal;font-style: normal;text-align: left;color: #0778ff; float: left;}
+	.resultboxdiv>.resultbox>.resulttop>.cname{width: 500px; height: 35px; text-align: right; margin-left: 140px; margin-top:15px; font-family: 'Noto Sans CJK KR';font-size: 30px;font-weight: bold;font-stretch: normal;font-style: normal;text-align: left;}
+	.resultboxdiv>.resultbox>.resulttop>.caddress{width: 500px; height: 35px; text-align: right; margin-left: 31px; margin-top:15px; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: normal;font-stretch: normal;font-style: normal;text-align: left; color: #999999;float: left;}
+	.resultboxdiv>.resultbox>.resulttop>.image{width: 29px; height: 21px; float:right; margin-right:34px;}
+	.resultboxdiv>.resultbox>.resultmid{width: 670px; height: 71px; background-color: #ffffff; border:none; text-align: left;}
+	.resultboxdiv>.resultbox>.resultcon{width: 670px; height: 73px; background-color: #f2f2f2; border-bottom:solid 2px #dcdcdc; text-align: left;}
+	.chname{width:150px; height: 60px; text-align: center; float: left; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal; padding-top:15px;}
+	.chbirth{width:200px; height: 60px; text-align: center; float: left; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: normal;font-stretch: normal;font-style: normal;padding-top:15px;}
+	.chgender{width:100px; height: 60px; text-align: center; float: left; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: normal ;font-stretch: normal;font-style: normal; padding-top:15px;}
+	.chrecent{width:220px; height: 60px; text-align: center; float: left; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;padding-top:15px;}
+
+	#footer{width : 751px;height: 500px;position: absolute; top :  2048px;}
+
+
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id = "topdiv">
+			<div id=  "titlediv"><label>아동리스트</label></div>
+			<input type = "text" placeholder="센터명, 아동이름을 검색하세요.">
+			<img src= "image/searchicon_blue.png" style = "width: 43px; height: 43px; margin-left: 640px; float:left; margin-top:-60px;">
+		</div>
+
+		<div id = "registerbtn"><button onclick = "location.href = 'cal_children.html'">아동등록</button></div>
+
+		<div class = "resultboxdiv" style = "margin-top: 143px;">
+			<div class = "resultbox">
+				<div class = "resulttop">
+					<div class = "centername">기관명</div>
+					<div class = "cname">아이플러스 서울언어치료센터 </div>
+					<div class = "caddress">서울특별시 관악구 난곡로 110 (난향동664)</div>
+					<div class = "image"><img src = "image/close.png"></div>
+				</div>
+				<div class = "resultmid">
+					<div class = "chname" style = "font-size: 28px; font-weight: bold;">아동이름</div>
+					<div class = "chbirth" style = "font-size: 28px; font-weight: bold;">생년월일</div>
+					<div class = "chgender" style = "font-size: 28px; font-weight: bold;">성별</div>
+					<div class = "chrecent" style = "font-size: 28px; font-weight: bold;">최근작성일</div>
+				</div>
+				<a href = "cal_children_detail.html">
+					<div class = "resultcon">
+						<div class = "chname">홍길동</div>
+						<div class = "chbirth">2020-01-01</div>
+						<div class = "chgender">남</div>
+						<div class = "chrecent">2020-09-14</div>
+					</div>
+				</a>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+				<div class = "resultcon">
+					<div class = "chname">아동명</div>
+					<div class = "chbirth">yyyy-mm-dd</div>
+					<div class = "chgender">남</div>
+					<div class = "chrecent">2020-09-14</div>
+				</div>
+			</div>
+		</div> <!--end resultboxdiv-->
+
+		<div class = "resultboxdiv" style = "height: 123px; margin-top: 1104px;">
+			<div class = "resultbox" style = "height: 123px;">
+				<div class = "resulttop">
+					<div class = "centername">기관명</div>
+					<div class = "cname">기관명이 들어갑니다.</div>
+					<div class = "caddress">서울특별시 관악구 난곡로 110 (난향동664)</div>
+					<div class = "image"><img src = "image/open.png"></div>
+				</div>
+			</div>
+		</div> <!--end resultboxdiv-->
+	</div> <!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>

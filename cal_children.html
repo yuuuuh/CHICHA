@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>아동리스트</title>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<style>
+	/*a태그 밑줄 삭제*/
+	a {
+		text-decoration: none
+	}
+	#area {width: 751px; height: 2627px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 2127px; background-color: #f4f4f4;}
+
+	#titlediv{width: 751px; height: 60px; position: absolute; text-align: center; margin-top: 71px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 40px; display: inline-block;}
+	#essential{width: 751px; height: 60px; position: absolute; text-align: right; margin-top: 148px;}
+	#essential>label{font-family: 'Noto Sans CJK KR';font-size: 20px; font-weight: 500; font-stretch: normal; font-style: normal; color: rgba(0, 0, 0, 0.8); margin-right:39px;}
+	#essential>label>font{font-weight: 900; color: rgba(7, 120, 255, 0.8);}
+
+	#box1div{width: 751px; height: 880px; position: absolute; text-align: center; margin-top: 194px;}
+	#box1div>#namebox{width: 670px; height: 197px; border: solid 1px rgba(0, 0, 0, 0.2); background-color: #e6e6e6; display: inline-block; text-align: left;}
+	#box1div>#namebox>select{width: 145px;height:33px;border-style : none; background: url('image/arrow_gray.png') no-repeat 95% 50%;-webkit-appearance: none;-moz-appearance: none;appearance: none; padding-left: 6px; opacity: 0.6;font-family: 'Noto Sans CJK KR';font-size: 23.5px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.6); float: left; margin-top: 25px; margin-left:30px;}
+	#box1div>#namebox>select::-ms-expand {display: none;}
+	#box1div>#namebox>hr{width: 145px; height: 2px; background-color: #b3b3b3; float: left; border:none; margin-top: 65px; margin-left:-137px;}
+	#box1div>#namebox>#name{width: 610px; height: 70px; border: solid 1px rgba(0, 0, 0, 0.2); background-color: #ffffff;margin-left: 30px; margin-top: 97px;}
+	#box1div>#namebox>#name>#nleft{width: 150px;height: 55px;background-color: #e6e6e6;float: left;text-align: center;padding-top: 15px;}
+	#box1div>#namebox>#name>#nleft>label{font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.6);}
+	#box1div>#namebox>#name>#nleft>label>font{color: rgba(7, 120, 255, 0.8);}
+	#box1div>#namebox>#name>input{width: 420px;height: 65px;float: left; border:none;  padding-left:30px; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.5);}
+	#box1div>#genderstate{width: 672px; height: 222px; border-bottom:solid 2px #dcdcdc; background-color: #ffffff; display: inline-block; text-align: center; margin-top: -4px;}
+	#box1div>#genderstate>#genderdiv{width: 672px; height: 80px;text-align: left; display: inline-block;padding-top:20px;}
+	#box1div>#genderstate>#genderdiv>label{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 900;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8);margin-left:32px; float: left;}
+	#box1div>#genderstate>#genderdiv>label>font{color: rgba(7, 120, 255, 0.8);}
+	#box1div>#genderstate>#genderdiv>#gender{width: 484px; height: 70px; border-radius: 10px; border: solid 1px #dcdcdc; background-color: #ffffff; float: left; margin-left: 50px;}
+	#box1div>#genderstate>#genderdiv>#gender>input{display: none;}
+	#box1div>#genderstate>#genderdiv>#gender>input + label{display: inline-block; cursor: pointer; width: 24px; height: 25px; background: url("image/radio_off.png") no-repeat; margin-left: 35px;margin-right: 10px; margin-top:20px;}
+	#box1div>#genderstate>#genderdiv>#gender>input:checked + label{background: url("image/radio_on.png") no-repeat;}
+	#box1div>#genderstate>#genderdiv>#gender>.glabel{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8);margin-right: 120px;}
+
+	#box1div>#genderstate>#statediv{width: 672px; height: 80px;text-align: left; display: inline-block;padding-top:20px;}
+	#box1div>#genderstate>#statediv>label{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 900;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8);margin-left:32px; float: left;}
+	#box1div>#genderstate>#statediv>label>font{color: rgba(7, 120, 255, 0.8);}
+	#box1div>#genderstate>#statediv>#state{width: 484px; height: 70px;float: left; margin-left: 50px;}
+	#box1div>#genderstate>#statediv>#state>input{display: none;}
+	#box1div>#genderstate>#statediv>#state>input + label{display: inline-block; cursor: pointer; width: 148px; height: 53px; border-radius: 10px; box-shadow: 0 0 5px 0 rgba(77, 77, 77, 0.45); background-color: #ffffff; margin-left: 8px; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: center;color: rgba(0, 0, 0, 0.5); padding-top: 13px;}
+	#box1div>#genderstate>#statediv>#state>input:checked + label{border: solid 2px #0778ff; background-color: #0778ff; color: #ffffff;}
+
+
+	#box1div>#birpho{width: 672px; height: 460px; border-bottom:solid 2px #dcdcdc; background-color: #ffffff; display: inline-block; text-align: center;}
+	#box1div>#birpho>#birthdiv{width: 672px; height: 150px;text-align: left; display: inline-block;padding-top:30px;}
+	#box1div>#birpho>#birthdiv>label{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 900;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8);margin-left:32px; float: left;}
+	#box1div>#birpho>#birthdiv>label>font{color: rgba(7, 120, 255, 0.8);}
+	#box1div>#birpho>#birthdiv>#birth{width: 608px; height: 50px; border-radius: 10px; border: solid 1px #dcdcdc; background-color: #ffffff; float: left; margin-left: 32px; margin-top: 20px; padding-top:20px;}
+	#box1div>#birpho>#birthdiv>#birth>select{width: 120px;height:33px;border-style : none; background: url('image/선택화살표.png') no-repeat 95% 50%;-webkit-appearance: none;-moz-appearance: none;appearance: none; padding-left: 6px; opacity: 0.6;font-family: 'Noto Sans CJK KR';font-size: 23.5px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.6); float: left; margin-top: -5px; margin-left:30px;}
+	#box1div>#birpho>#birthdiv>#birth>select::-ms-expand {display: none;}
+	#box1div>#birpho>#birthdiv>#birth>hr{width: 110px; height: 2px; background-color: #b3b3b3; float: left; border:none; margin-top: 35px; margin-left:-115px;}
+	#box1div>#birpho>#birthdiv>#birth>label{opacity: 0.8;font-family: 'Noto Sans CJK KR';font-size: 23.5px;font-weight: bold;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.6); float: left; margin-left: 5px;}
+	#box1div>#birpho>#phonediv{width: 672px; height: 150px;text-align: left; display: inline-block;padding-top:30px;}
+	#box1div>#birpho>#phonediv>label{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 900;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8);margin-left:32px; float: left;}
+	#box1div>#birpho>#phonediv>label>font{color: rgba(7, 120, 255, 0.8);}
+	#box1div>#birpho>#phonediv>#phone{width: 608px; height: 70px; border-radius: 10px; border: solid 1px #dcdcdc; background-color: #ffffff; float: left; margin-left: 32px; margin-top: 20px;}
+	#box1div>#birpho>#phonediv>#phone>#rela{width: 150px; height: 70px; float: left; text-align: center;}
+	#box1div>#birpho>#phonediv>#phone>#rela>select{width: 120px;height:33px;border-style : none; background: url('image/선택화살표.png') no-repeat 95% 50%;-webkit-appearance: none;-moz-appearance: none;appearance: none; padding-left: 6px; opacity: 0.6;font-family: 'Noto Sans CJK KR';font-size: 23.5px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.6); float: left; margin-top: 10px; margin-left:30px;}
+	#box1div>#birpho>#phonediv>#phone>#rela>select::-ms-expand {display: none;}
+	#box1div>#birpho>#phonediv>#phone>#rela>hr{width: 115px; height: 2px; background-color: #b3b3b3; float: left; border:none; margin-top: 53px; margin-left:-118px;}
+	#box1div>#birpho>#phonediv>#phone>input{width: 370px; height: 65px; border: none; padding-left:30px;font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.5); float: left;}
+	#box1div>#birpho>#phoneplus{width: 672px; height: 70px;text-align: center; display: inline-block;}
+	#box1div>#birpho>#phoneplus>button{width: 599px; height: 70px; border-radius: 10px; box-shadow: 0 0 10px 0 rgba(7, 120, 255, 0.45); border: solid 3px #0778ff; background-color: #ffffff; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: center;color: #0778ff; display: inline-block;}
+
+
+	#box2div{width: 751px; height: 630px; position: absolute; text-align: center; margin-top: 1100px;}
+	#box2div>#admediv{width: 670px; height: 630px; box-shadow: 0 0 10px 0 rgba(115, 155, 210, 0.45); background-color: #ffffff; display: inline-block; text-align: center;}
+	#box2div>#admediv>#addressdiv{width: 672px; height: 300px;text-align: left; display: inline-block; margin-top: 30px;}
+	#box2div>#admediv>#addressdiv>div{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 900;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8);margin-left:32px;}
+	#box2div>#admediv>#addressdiv>input{height: 71px; border-radius: 10px; border: solid 1px rgba(0, 0, 0, 0.2); background-color: #ffffff; margin-top: 15px;float: left; margin-left: 33px; padding-left:15px; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: 300;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.4);}
+	#box2div>#admediv>#addressdiv>button{width: 173px; height: 71px; border-radius: 10px; box-shadow: 0 0 8px 0 rgba(57, 56, 58, 0.45); border: solid 3px #0778ff; background-color: #ffffff; margin-left: 17px; margin-top: 15px; font-family: 'Noto Sans CJK KR';font-size: 26px;font-weight: bold;font-stretch: normal;font-style: normal;text-align: center;color: #0778ff;}
+
+	#box2div>#admediv>#memodiv{width: 672px; height: 300px;text-align: left; display: inline-block; margin-top: 30px;}
+	#box2div>#admediv>#memodiv>div{opacity: 0.8; font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: 900;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.8); margin-left:32px;}
+	#box2div>#admediv>#memodiv>textarea{width: 578px; height: 181px; border-radius: 10px; border: solid 1px rgba(0, 0, 0, 0.2); background-color: #ffffff; resize: none; margin-left: 33px;margin-top: 10px; padding-left: 30px; padding-top:20px; font-family: 'Noto Sans CJK KR';font-size: 24.5px;font-weight: 500;font-stretch: normal;font-style: normal;text-align: left;color: rgba(0, 0, 0, 0.5);}
+
+	#btndiv{width :751px; height: 160px; position: absolute; text-align: center; margin-top: 1809px;}
+	#btndiv>#register{width: 668px; height: 70px; border-radius: 10px; border:none; outline:none; box-shadow: 0 0 5px 0 rgba(115, 155, 210, 0.45); background-color: #0778ff; display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal;letter-spacing: -1.44px;text-align: left;color:#ffffff; text-align: center;}
+	#btndiv>#cancel{width: 668px; height: 70px; border-radius: 10px; border:none; outline:none; box-shadow: 0 0 5px 0 rgba(115, 155, 210, 0.45);background-color: #3c3c3c; display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal;letter-spacing: -1.44px;text-align: left;color:#ffffff; margin-top:20px;text-align: center;}
+
+	#footer{width : 751px;height: 500px;position: absolute; top : 2127px;  background-color: #f4f4f4;}
+
+
+</style>
+<script>
+	function goBack() {
+		window.history.go(-1);
+	}
+</script>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id=  "titlediv"><label>아동등록</label></div>
+		<div id = "essential"><label><font>*</font> 필수 입력 값</label></div>
+
+		<div id = "box1div">
+			<div id = "namebox">
+				<select name = "centername">
+					<option value = "">센터명</option>
+				</select>
+				<hr>
+
+				<div id = "name">
+					<div id = "nleft"><label>아동이름<font>*</font></label></div>
+					<input type = "text" placeholder="홍길동">
+				</div>
+			</div> <!--end namebox-->
+
+			<div id = "genderstate">
+				<div id = "genderdiv">
+					<label>성별<font>*</font></label>
+					<div id = "gender">
+						<input type = "radio" id = "man" name = "gender">
+						<label for = "man"></label>
+						<label class = "glabel">남성</label>
+
+						<input type = "radio" id = "woman" name = "gender">
+						<label for = "woman"></label>
+						<label class = "glabel">여성</label>
+					</div>
+				</div>
+
+				<div id = "statediv">
+					<label>상태<font>*</font></label>
+					<div id = "state">
+						<input type = "radio" id = "1" name = "state">
+						<label for = "1">대기</label>
+
+						<input type = "radio" id = "2" name = "state">
+						<label for = "2">진행</label>
+
+						<input type = "radio" id = "3" name = "state">
+						<label for = "3">종료</label>
+					</div>
+				</div>
+			</div> <!--genderstate-->
+
+		  <div id = "birpho">
+				<div id = "birthdiv">
+					<label>생년월일<font>*</font></label>
+					<div id = "birth">
+						<select name = "year">
+							<option value = "">2020</option>
+						</select>
+						<hr>
+						<label>년</label>
+
+						<select name = "month">
+							<option value = "">01</option>
+						</select>
+						<hr>
+						<label>월</label>
+
+						<select name = "day">
+							<option value = "">01</option>
+						</select>
+						<hr>
+						<label>일</label>
+					</div>
+			  </div>
+
+			  <div id = "phonediv">
+				  <label>전화번호<font>*</font></label>
+				  <div id = "phone">
+					  <div id = "rela">
+						<select name = "relation">
+							<option value = "">관계</option>
+						</select>
+						  <hr>
+					  </div>
+					  <input type = "text" placeholder="전화 번호를 입력해주세요.">
+				  </div>
+			  </div>
+			  <div id = "phoneplus"><button>전화번호 추가</button></div>
+			</div> <!--end birpho-->
+		</div> <!--end box1div -->
+
+		<div id = "box2div">
+			<div id = "admediv">
+				<div id = "addressdiv">
+					<div>주소</div>
+					<input type = "text" style = "width: 398px;" placeholder="우편번호">
+					<button onclick="execPostCode()">우편번호</button>
+					<input type = "text" style = "width: 595px;" placeholder="기본주소">
+					<input type = "text" style = "width: 595px;" placeholder="상세주소">
+				</div>
+
+				<div id = "memodiv">
+					<div>메모</div>
+					<textarea placeholder="내용을 입력하세요."></textarea>
+				</div>
+			</div>
+		</div> <!--end box2div-->
+
+		<div id = "btndiv">
+			<button id = "register" onclick = "location.href = 'cal_children_list.html'">등록</button>
+			<button id = "cancel" onclick = "goBack()">취소</button>
+		</div>
+	</div> <!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>

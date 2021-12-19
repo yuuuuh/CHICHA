@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>캘린더</title>
+<style>
+	/*a태그 밑줄 삭제*/
+	a {
+		text-decoration: none
+	}
+	
+	#main {width: 670px; height: 1500px; background-color: #ffffff;}
+	
+	#planboxdiv{width: 670px; height: 244px; position: absolute; text-align: center;}
+	#planboxdiv>#planbox{width: 670px; height: 244px; box-shadow: 0 0 10px 0 rgba(115, 155, 210, 0.45); background-color: #ffffff; display: inline-block;}
+	#planboxdiv>#planbox>#today{width: 200px; height: 30px; margin-left: 31px; margin-top: 30px; text-align: left;}
+	#planboxdiv>#planbox>#today>label{font-family: 'Noto Sans CJK KR'; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; color: #2f2f2f;}
+	#planboxdiv>#planbox>#thisplan{width: 140px; height: 30px; margin-left: 31px; margin-top: 20px; text-align: left; float: left;}
+	#planboxdiv>#planbox>#thisplan>label{font-family: 'Noto Sans CJK KR'; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; color: #2f2f2f;}
+	#planboxdiv>#planbox>#people{width: 120px; height: 40px; margin-top: 20px; box-shadow: 0 0 10px 0 rgba(0, 204, 204, 0.45); background-color: #00cccc; text-align: center; float: left; padding-bottom: 8px;}
+	#planboxdiv>#planbox>#people>label{font-family: 'Noto Sans CJK KR'; font-size: 32px; font-weight: bold; font-stretch: normal; font-style: normal; color: #ffffff;}
+	#planboxdiv>#planbox>#currentdiv{width: 220px; height: 30px; margin-right: 33px; margin-top: 30px; text-align: right; float: right;}
+	#planboxdiv>#planbox>#currentdiv>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: #2f2f2f;}
+	#planboxdiv>#planbox>#currentdiv>label>font{font-weight: normal; color: #4e4e4e;}
+	#planboxdiv>#planbox>#peoplebox{width: 670px; height: 110px; background-color: #2f2f2f; display: inline-block; margin-top: 10px; text-align: center;}
+	#planboxdiv>#planbox>#peoplebox>#p{width: 640px; height: 50px; display: inline-block; margin-top: 38px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: #ffffff;}
+	#planboxdiv>#planbox>#peoplebox>#p>#attendancediv{width: 100px; display: inline-block; float: left; text-align: left;}
+	#planboxdiv>#planbox>#peoplebox>#p>#attendancediv>label{float: left;}
+	#planboxdiv>#planbox>#peoplebox>#p>#attendancediv>#attendance{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; background-color: #ffffff; color: #2f2f2f; text-align: center;}
+	#planboxdiv>#planbox>#peoplebox>#p>#absentdiv{width: 100px; display: inline-block; float: left; text-align: left; margin-left: 10px; color: #f25b3d;}
+	#planboxdiv>#planbox>#peoplebox>#p>#absentdiv>label{float: left;}
+	#planboxdiv>#planbox>#peoplebox>#p>#absentdiv>#absent{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; background-color: #f25b3d; color: #ffffff; text-align: center;}
+	#planboxdiv>#planbox>#peoplebox>#p>#reinforcediv{width: 150px; display: inline-block; float: left; text-align: left; margin-left: 10px; color: #ffffff;}
+	#planboxdiv>#planbox>#peoplebox>#p>#reinforcediv>label{float: left;}
+	#planboxdiv>#planbox>#peoplebox>#p>#reinforcediv>#reinforce{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; background-color: #ffffff; color: #ff4a26; text-align: center;}
+	#planboxdiv>#planbox>#peoplebox>#p>#evaluationdiv{width: 150px; display: inline-block; float: left; text-align: left; margin-left: 10px;}
+	#planboxdiv>#planbox>#peoplebox>#p>#evaluationdiv>label{float: left;}
+	#planboxdiv>#planbox>#peoplebox>#p>#evaluationdiv>#evaluation{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; box-shadow: 0 0 4.8px 0.3px #000000; background-color: #2f2f2f; color: #ffffff; text-align: center;}
+	#planboxdiv>#planbox>#peoplebox>#p>#totaldiv{width: 100px; display: inline-block; float: left; text-align: left; margin-left: 10px;}
+	#planboxdiv>#planbox>#peoplebox>#p>#totaldiv>label{float: left;}
+	#planboxdiv>#planbox>#peoplebox>#p>#totaldiv>#total{width: 42px; display: inline-block; float: left; margin-left: 10px; border-radius: 5px; box-shadow: 0 0 4.8px 0.3px #000000; background-color: #2f2f2f; color: #ffffff; text-align: center;}
+	
+	#plannum{width: 670px; height: 60px; position: absolute; text-align: left; border-bottom: solid 2px #dcdcdc; margin-top: 245px; padding-top: 20px;}
+	#plannum>label{font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: 500; font-stretch: normal; font-style: normal; color: #3c3c3c; margin-left: 35px;}
+	
+	#plan{width: 670px; height: 657px; position: absolute; text-align: left; margin-top: 344px;}
+
+	#plan>.line{width: 670px; height:100px; padding-top:30px;}
+	#plan>.line>hr{width: 4px; height: 90px; background-color: #2f2f2f; border: none; margin-left: 32px; float: left;}
+	#plan>.line>.time{width: 80px; height: 25px; margin-left: 23px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal; color: rgba(47, 47, 47, 0.97); float: left; display: inline-block;}
+	#plan>.line>.lname{width: 100px; height: 35px;margin-left: 35px; font-family: 'Noto Sans CJK KR'; font-size: 30px; font-weight: bold; font-stretch: normal; font-style: normal; color: rgba(47, 47, 47, 0.6); float: left; display: inline-block;}
+	#plan>.line>.lstate{width: 50px; height: 35px; margin-top:5px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color: rgba(47, 47, 47, 0.6); float: left; display: inline-block;}
+	#plan>.line>.lmemo{width: 250px; height: 35px; margin-top:45px; margin-left: -150px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal; color: rgba(47, 47, 47, 0.6); float: left; display: inline-block;}
+	#plan>.line>.treatname{width: 100px; height: 35px; margin-left: 30px; font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal;float: left; display: inline-block;}
+	#plan>.line>.cname{width: 100px; height: 35px;font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: normal; font-stretch: normal; font-style: normal;float: left; display: inline-block;}
+	
+	#btndiv{width :670px; height: 160px; position: absolute; text-align: center; margin-top: 1050px;}
+	#btndiv>button{width: 608px; height: 70px; border-radius: 10px; border:none; outline:none; bbox-shadow: 0 0 5px 0 rgba(115, 155, 210, 0.45); background-color: #3c3c3c;display: inline-block; font-family: 'Noto Sans CJK KR';font-size: 24px;font-weight: bold;font-stretch: normal;font-style: normal; color:#ffffff; text-align: center; display: inline-block;}
+	
+
+	
+</style>
+</head>
+
+<body>
+	<div id = "main">
+		<div id = "planboxdiv">
+			<div id = "planbox">
+				<div id = "today"><label>2020.09.18</label></div>
+				<div id = "thisplan"><label>치료예정</label></div>
+				<div id = "people"><label>05명</label></div>
+				<div id = "currentdiv"><label>오늘의 치료현황<font>(명)</font></label></div>
+				
+				<div id = "peoplebox">
+					<div id = "p">
+						<div id = "attendancediv">
+							<label>출석</label>
+							<div id = "attendance">56</div>
+						</div>
+
+						<div id = "absentdiv">
+							<label>출석</label>
+							<div id = "absent">03</div>
+						</div>
+
+						<div id = "reinforcediv">
+							<label>보강완료</label>
+							<div id = "reinforce">02</div>
+
+						</div>
+
+						<div id = "evaluationdiv">
+							<label>평가완료</label>
+							<div id = "evaluation">04</div>
+
+						</div>
+
+						<div id = "totaldiv">
+							<label>누적</label>
+							<div id = "total">58</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- end planboxdiv-->
+		
+		<div id = "plannum"><label>일정(6)</label></div>
+		
+		
+		<div id = "plan">
+			<div class = "line">
+				<hr style = "background-color: #f25b3d;">
+				<div class = "time" style = "color: rgba(242, 91, 61, 0.97);">09:00</div>
+				<div class = "lname" style = "color: #f25b3d;">홍길동</div>
+				<div class = "lstate" style = "color: #f25b3d;">결석</div>
+				<div class = "lmemo">메모 내용이 보여집니다.</div>
+				<div class = "treatname">치료분야</div>
+				<div class = "cname">치료사명</div>
+			</div>
+			
+			<div class = "line">
+				<hr style = "background-color: #2f2f2f;">
+				<div class = "time" style = "color: rgba(47, 47, 47, 0.97);">10:00</div>
+				<div class = "lname" style = "color: #2f2f2f;">홍길동</div>
+				<div class = "lstate" style = "color: #2f2f2f;">결석</div>
+				<div class = "lmemo">메모 내용이 보여집니다.</div>
+				<div class = "treatname">치료분야</div>
+				<div class = "cname">치료사명</div>
+			</div>
+			
+			<div class = "line">
+				<hr>
+				<div class = "time">11:00</div>
+				<div class = "lname">아동명</div>
+				<div class = "lstate">예약</div>
+				<div class = "lmemo">메모 내용이 보여집니다.</div>
+				<div class = "treatname">치료분야</div>
+				<div class = "cname">치료사명</div>
+			</div>
+			
+			<div class = "line">
+				<hr>
+				<div class = "time">12:00</div>
+				<div class = "lname">아동명</div>
+				<div class = "lstate">예약</div>
+				<div class = "lmemo">메모 내용이 보여집니다.</div>
+				<div class = "treatname">치료분야</div>
+				<div class = "cname">치료사명</div>
+			</div>
+			
+			<div class = "line">
+				<hr>
+				<div class = "time">13:00</div>
+				<div class = "lname">아동명</div>
+				<div class = "lstate">예약</div>
+				<div class = "lmemo">메모 내용이 보여집니다.</div>
+				<div class = "treatname">치료분야</div>
+				<div class = "cname">치료사명</div>
+			</div>
+		</div> <!--end plan-->
+		
+		
+		<div id = "btndiv">
+			<button onClick = "window.close()">닫기</button>
+		</div>
+		
+		
+	
+	</div> <!--end main-->
+</body>
+</html>
