@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>자가진단</title>
+<style>
+	#area { width: 751px; height: 2011px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 1511px; background-color: #ffffff;}
+	#topdiv{width: 751px; height : 304px; background-color: #edfaf8;}
+
+	#titlediv{width: 751px; height: 60px; position: absolute; text-align: left; margin-top: 50px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 40px; display: inline-block;}
+
+	#contentdiv{width: 751px; height: 120px; position: absolute; text-align: left; margin-top: 144px;}
+	#contentdiv>#content{width: 600px; height: 120px; margin-left: 40px; display: inline-block;}
+	#contentdiv>#content>label{font-family: 'Noto Sans CJK KR'; font-size: 28.5px; font-weight: 300; font-stretch: normal; font-style: normal;}
+	#contentdiv>#content>label>font{font-weight: 900;}
+
+	#boxdiv{width: 751px; height: 833px; text-align: center;}
+	#boxdiv>#hrdiv{width: 751px; height: 6px; position: absolute; text-align: left; margin-top: 41px;}
+	#boxdiv>#hrdiv>hr{width: 61px; height: 6px; border:none; background-color: #000000; display: inline-block; margin-left: 39px;}
+	#boxdiv>#selfdiv{width: 751px; height: 80px; position: absolute; text-align: left; margin-top: 74px;}
+	#boxdiv>#selfdiv>#self{width: 400px; height: 80px; display: inline-block; margin-left: 39px;}
+	#boxdiv>#selfdiv>#self>label{font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: bold; font-stretch: normal; font-style: normal;}
+	#boxdiv>.selectboxdiv{width: 751px; height: 70px; position: absolute; text-align: center;}
+	#boxdiv>.selectboxdiv>.selectbox{width: 669px; height: 70px; border-radius: 10px; border: solid 1px rgba(0, 0, 0, 0.2); background-color: #ffffff; display: inline-block; text-align: center;}
+	#boxdiv>.selectboxdiv>.selectbox>.sel{width: 250px; height: 40px; display: inline-block; margin-top:15px;}
+	#boxdiv>.selectboxdiv>.selectbox>.sel>label{font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: bold; font-stretch: normal; font-style: normal;color: rgba(0, 0, 0, 0.8); }
+	#boxdiv>.selectboxdiv>.selectbox>.sel>select{width: 136px; height:45px;border-style : none;border-bottom: 3px solid #dcdcdc ;background: url('image/arrow_gray.png') no-repeat 95% 50%;-webkit-appearance: none;-moz-appearance: none;appearance: none; padding-left: 10px; margin-left:45px; }
+	#boxdiv>.selectboxdiv>.selectbox>.sel>select::-ms-expand {display: none;}
+	#boxdiv>.selectboxdiv>.selectbox>.sel>select{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: 500; font-stretch: normal; font-style: normal;color: rgba(0, 0, 0, 0.6);}
+
+	#btndiv{width: 751px; height: 70px; position: absolute; text-align: center; margin-top:398px;}
+	#btndiv>button{ width: 671px; height: 70px; border-radius: 10px; box-shadow: 0 0 8px 0 rgba(57, 56, 58, 0.45); border: solid 3px #00bfbf; background-color: #ffffff; font-family: 'Noto Sans CJK KR'; font-size: 26px; font-weight: 500; font-stretch: bold; font-style: normal;color:  #00bfbf;}
+
+	#footer{width : 751px;height: 500px;position: absolute; top : 1511px;}
+
+
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id = "topdiv">
+			<div id=  "titlediv"><label>자가진단</label></div>
+
+			<div id = "contentdiv">
+				<div id = "content">
+					<label>우리 아이의 <font style = "color: #0778ff;">언어발달</font>은 잘 되고 있을까?<br>간편하게 확인해보고 <font>알맞은 기관</font>을 추천받으세요!</label>
+				</div>
+			</div> <!--end contentdiv-->
+		</div> <!--end topdiv-->
+
+		<div id = "boxdiv">
+			<div id = "hrdiv"><hr></div>
+			<div id = "selfdiv"><div id = "self"><label>나이와 성별을 선택해주세요.</label></div></div>
+
+			<div class = "selectboxdiv" style = "margin-top:159px;">
+				<div class = "selectbox">
+					<div class = "sel">
+						<label >성별</label>
+						<select name = "gender">
+							<option value = "">선택</option>
+							<option value = "man">남자</option>
+							<option value = "woman">여자</option>
+						</select>
+					</div>
+				</div>
+			</div> <!--end selectboxdiv-->
+
+			<div class = "selectboxdiv" style = "margin-top:258px;">
+				<div class = "selectbox">
+					<div class = "sel">
+						<label >나이</label>
+						<select name = "age">
+							<option value = "">선택</option>
+							<option value = "unthree">3개월이하</option>
+							<option value = "fosi">4~6개월</option>
+							<option value = "seni">7~9개월</option>
+							<option value = "tentw">10~12개월</option>
+							<option value = "thfi">13~15개월</option>
+							<option value = "siei">16~18개월</option>
+							<option value = "nitw">19~21개월</option>
+							<option value = "twtw">22~24개월</option>
+							<option value = "three">만3세</option>
+							<option value = "four">만4세</option>
+							<option value = "five">만5세</option>
+							<option value = "six">만6세</option>
+							<option value = "seven">만7세</option>
+							<option value = "upeight">만8세 이상</option>
+						</select>
+					</div>
+				</div>
+			</div> <!--end selectboxdiv-->
+
+			<div id = "btndiv"><button onclick = "location.href = 'self_ADHD1.html'">다음</button></div>
+		</div>
+	</div> <!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 271px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 380px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 387px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 427px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 424px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>

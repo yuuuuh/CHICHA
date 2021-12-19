@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>결과</title>
+<style>
+	#area { width: 751px; height: 1460px;}
+	#top { width: 751px; height: 140px; background-color: #ffffff;display: table;}
+	#img1 {width: 254px;height: 79px;position: absolute; left: 27px; top: 30px;}
+	#menu {width: 54px; height: 44px; position: absolute; left: 676px; top: 47px;}
+	#main {width: 751px; height : 960px; background-color: #f2faf9;}
+
+
+	#titlediv{width: 751px; height: 60px; position: absolute; text-align: left; margin-top: 50px;}
+	#titlediv>label{font-family: 'Noto Sans CJK KR'; font-size: 50px; font-weight: bold; font-stretch: normal; font-style: normal; margin-left: 40px; display: inline-block;}
+
+	#contentdiv{width: 751px; height: 120px; position: absolute; text-align: left; margin-top: 144px;}
+	#contentdiv>#content{width: 600px; height: 120px; margin-left: 40px; display: inline-block;}
+	#contentdiv>#content>label{font-family: 'Noto Sans CJK KR'; font-size: 28.5px; font-weight: 300; font-stretch: normal; font-style: normal;}
+	#contentdiv>#content>label>font{font-weight: bold;}
+
+	#hrdiv{width: 751px; height: 6px; position: absolute; text-align: left; margin-top: 345px;}
+	#hrdiv>hr{width: 61px; height: 6px; border:none; background-color: #000000; display: inline-block; margin-left: 39px;}
+
+	#selfdiv{width: 751px; height: 150px; position: absolute; text-align: left; margin-top: 378px;}
+	#selfdiv>#self{width: 650px; height: 150px; display: inline-block; margin-left: 39px;}
+	#selfdiv>#self>label{font-family: 'Noto Sans CJK KR'; font-size: 24px; font-weight: bold; font-stretch: normal; font-style: normal;}
+
+	#resultboxdiv{width: 751px; height: 220px; position: absolute; text-align: center; margin-top: 434px;}
+	#resultboxdiv>#resultbox{width: 670px; height: 220px; display: inline-block;}
+	#resultboxdiv>#resultbox>#resulttop{width: 670px; height: 80px; background-color: #e6e6e6;}
+	#resultboxdiv>#resultbox>#resulttop>#labeldiv{width: 350px; height: 35px; display: inline-block; margin-top:16px;}
+	#resultboxdiv>#resultbox>#resulttop>#labeldiv>label{font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: bold; font-stretch: normal; font-style: normal;}
+	#resultboxdiv>#resultbox>#resulttop>#labeldiv>label>font{color: #0778ff;}
+	#resultboxdiv>#resultbox>#resultcontent{width: 670px; height: 140px; background-color: #ffffff;}
+	#resultboxdiv>#resultbox>#resultcontent>#labelcontent{width:450px; height: 35px; display: inline-block; margin-top:30px;}
+	#resultboxdiv>#resultbox>#resultcontent>#labelcontent>label{font-family: 'Noto Sans CJK KR'; font-size: 28px; font-weight: normal; font-stretch: normal; font-style: normal;}
+
+
+	#buttondiv{width: 751px; height: 164px; position: absolute; text-align: center; margin-top: 695px;}
+	#buttondiv>#search{width: 670px; height: 70px; border-radius: 10px; box-shadow: 0 0 5px 0 rgba(57, 56, 58, 0.45); border: solid 3px #0778ff; background-color: #0778ff; font-family: 'Noto Sans CJK KR'; font-size: 26px; font-weight: bold; font-stretch: normal; font-style: normal; color: #00bfbf; outline: none; color: #ffffff;}
+	#buttondiv>#other{width: 670px; height: 70px; border-radius: 10px; box-shadow: 0 0 8px 0 rgba(57, 56, 58, 0.45); border: solid 3px #00bfbf; background-color: #ffffff; font-family: 'Noto Sans CJK KR'; font-size: 26px; font-weight: bold; font-stretch: normal; font-style: normal; color: #00bfbf; outline: none; margin-top: 20px; }
+
+	#footer{width : 751px;height: 400px;position: absolute; top : 1060px; background-color: #f2faf9;}
+
+</style>
+</head>
+
+<body id="area">
+	<div id = "top"><!--top 화면-->
+		<a href = "index.html"><img src = "image/logo.png" id = "img1"></a>
+		<a href = ""><img src = "image/icn_menu.png" id = "menu"></a>
+	</div>
+
+	<div id = "main">
+		<div id=  "titlediv"><label>자가진단</label></div>
+
+		<div id = "contentdiv">
+			<div id = "content">
+				<label>우리 아이가 혹시 <font style = "color: #0778ff;">ADHD?</font><br>간편하게 확인해보고 <font>알맞은 기관</font>을 추천받으세요!
+				</label>
+			</div>
+		</div> <!--end contentdiv-->
+
+		<div id = "hrdiv"><hr></div>
+		<div id = "selfdiv"><div id = "self"><label>우리 아이 결과는?</label><br></div></div>
+
+		<div id = "resultboxdiv">
+			<div id = "resultbox">
+				<div id = "resulttop">
+					<div id = "labeldiv"><label><font>ADHD</font> 가 의심됩니다.</label></div>
+				</div>
+				<div id = "resultcontent">
+					<div id = "labelcontent"><label>전문 기관에 방문하여<br>정확한 평가를 받아보시길 바랍니다. </label></div>
+				</div>
+			</div><!--end resultbox-->
+		</div>	<!--end resultboxdiv-->
+
+		<div id = "buttondiv">
+			<button id = "search">기관 찾아보기</button>
+			<button id = "other" onClick = "location.href = 'self.html'">다른 진단해보기</button></div>
+
+	</div> <!--end main-->
+
+	<div id = "footer">
+		<img src = "image/logo.png" width = "317px" height = "98px" style = "position: absolute; left: 38px; top: 171px;">
+		<img src = "image/copy.png" width = "446px" height = "29px" style = "position: absolute; left: 49px; top: 280px;">
+		<a href = "#top"><img src = "image/up.png" width = "80px" height = "80px" style = "position: absolute; left: 649px; top: 287px;"></a>
+		<span style = "width: 242px;height: 26px;font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: normal;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 39px; top: 327px;">이메일무단수집 거부</span>
+		<span style = "font-family: 'Noto Sans CJK KR';font-size: 28px;font-weight: bold;font-stretch: normal;font-style: normal;line-height: 1.07;letter-spacing: -1.68px;text-align: left;color: #000000; position: absolute; left: 323px; top: 324px;">개인정보처리방침</span>
+	</div>
+</body>
+</html>
